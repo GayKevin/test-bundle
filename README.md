@@ -30,7 +30,7 @@ return [
 
 ```
 
-Now you have to update your database to get the two tables (Mail, MailTemplate)
+Now you have to update your database to get the two tables (`Mail`, `MailTemplate`)
 ```bash
 // Symfony 3.4+
 php bin/console doctrine:migrations:update
