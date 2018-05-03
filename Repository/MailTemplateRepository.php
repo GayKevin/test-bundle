@@ -24,10 +24,12 @@ class MailTemplateRepository extends ServiceEntityRepository
     /**
      * @param $code
      *
-     * @return MailTemplate
+     * @return null|object
      */
     public function findOneByCode($code)
     {
-        return parent::findOneByCode($code);
+        return parent::findOneBy([
+            'code' => $code,
+        ]);
     }
 }

@@ -28,6 +28,8 @@ class MailRepository extends ServiceEntityRepository
      */
     public function findBySentDate($sendDate = null)
     {
-        return parent::findBySentDate($sendDate);
+        return parent::findBy([
+            'sentDate' => $sendDate
+        ]);
     }
 }
