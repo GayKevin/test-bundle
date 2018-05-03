@@ -77,6 +77,22 @@ INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `
 ```php
 // src/controller/myController.php
 
+<?php
+
+
+namespace App\Controller;
+
+
+use Extellient\MailBundle\Services\MailTemplating;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\Annotation\Route;
+
+/**
+ * Class HomeController
+ * @package App\Controller
+ */
+class HomeController extends Controller
+{
     /**
      * @Route("/", name="home")
      * @param MailTemplating $mailTemplating
@@ -84,10 +100,11 @@ INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `
     public function indexAction(MailTemplating $mailTemplating)
     {
         $mail = $mailTemplating->createEmail('reset_password', 'your-email@your-email.com', [
-            'link_password_reset' => 'wwww.test.com/reset-link'
+            'link_password_reset' => 'test'
         ]);
         $mailTemplating->getMailService()->save($mail);
     }
+}
 
 ```
 
