@@ -1,1 +1,96 @@
 # MailBundle
+
+Installation
+------------
+
+With [composer](http://packagist.org), require:
+
+`composer require extellient/::class => ['all' => true],`
+
+Then enable it in your kernel:
+
+```php
+// app/AppKernel.php Symfony 3.4+
+public function registerBundles()
+{
+    $bundles = array(
+        //...
+        new Extellient\MailBundle\MailBundle(),
+        //...
+```
+
+```php
+// config/bundles.php Symfony 4+
+
+return [
+    //...
+    Extellient\MailBundle\MailBundle::class => ['all' => true],
+    //...
+];
+
+```
+
+Now you have to update your database to get the two tables (Mail, MailTemplate)
+```bash
+// Symfony 3.4+
+php bin/console doctrine:migrations:update
+```
+
+
+```
+Configuration
+-------------
+
+You need to configure the default mail.
+
+```yaml
+# app/config/parameters.yml Symfony 3.4+
+# config/package/parameters.yml Symfony 4+
+parameters:
+    mail_address_from: '%env(MAIL_ADDRESS_FROM)%'
+    mail_alias_from: '%env(MAIL_ALIAS_FROM)%'
+    mail_reply_to: '%env(MAIL_REPLY_TO)%'
+```
+
+The default configuration use the Doctrine bridge for the database, Twig for the templating and SwiftMailer to send mail.
+You don't need to create this file if you want to use the default configuration
+```yaml
+# app/config/extelient_mail.yml Symfony 3.4+
+# config/package/extelient_mail.yml Symfony 4+
+extellient_mail:
+    mail_service_provider: 'Extellient\MailBundle\Provider\Mail\DoctrineMailProvider' #The database provider to get mails
+    mail_template_service_provider: 'Extellient\MailBundle\Provider\Template\DoctrineMailTemplateProvider' # The database provider to get templates
+    mail_sender_service_provider: 'Extellient\MailBundle\Sender\SwiftMailSender' #The Mail provider that will be use to send mails
+```
+
+```
+Insert your first template inside your database
+-------------
+```sql
+INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `mail_body`, `code`) VALUES (1, '2018-03-14 09:44:28', '2018-04-20 15:11:38', 'Reset your password', '<p>Hello,<br /><br />{{link_password_reset}}', 'reset_password'),
+
+```php
+    /**
+     * @Route("/", name="home")
+     * @param MailTemplating $mailTemplating
+     */
+    public function indexAction(MailTemplating $mailTemplating)
+    {
+        $mail = $mailTemplating->createEmail('reset_password', 'kgya@extellient.com', [
+            'link_password_reset' => 'wwww.test.com/reset-link'
+        ]);
+        $mailTemplating->getMailService()->save($mail);
+    }
+
+```
+After to go to this page, check your data inside your table Mail and you should see your first entry inside it
+
+```
+Send all your mail
+-------------
+This command will send all the mail inside your table Mail, where sent_date = null
+
+```bash
+php bin/console extellient:mailbundle:send
+
+```

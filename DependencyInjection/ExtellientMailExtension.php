@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class MailExtension extends Extension
+class ExtellientMailExtension extends Extension
 {
     /**
      * Loads a specific configuration.
