@@ -29,21 +29,18 @@ class MailExtension extends Extension
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $mailServiceProvider = $config['mail_service_provider'];
-        $mailTemplateServiceProvider = $config['mail_template_service_provider'];
-        $mailSenderServiceProvider = $config['mail_sender_service_provider'];
+        $mailProvider = $config['mail_service_provider'];
+        $templateProvider = $config['mail_template_service_provider'];
+        $senderProvider = $config['mail_sender_service_provider'];
 
-        $definitionMailTemplate = $container->getDefinition(MailTemplate::class);
-        $definitionMailTemplate->replaceArgument(0, new Reference($mailTemplateServiceProvider));
+        $container->getDefinition(MailTemplate::class)->replaceArgument(0, new Reference($templateProvider));
 
-        $definitionMailSenderService = $container->getDefinition(SwiftMailSender::class);
-        $definitionMailSenderService->replaceArgument(1, new Reference($mailServiceProvider));
+        $container->getDefinition(SwiftMailSender::class)->replaceArgument(1, new Reference($mailProvider));
 
-        $definitionMailService = $container->getDefinition(Mailer::class);
-        $definitionMailService->replaceArgument(0, new Reference($mailServiceProvider));
+        $container->getDefinition(Mailer::class)->replaceArgument(0, new Reference($mailProvider));
 
-        $definitionSender = $container->getDefinition(Sender::class);
-        $definitionSender->replaceArgument(0, new Reference($mailSenderServiceProvider));
-        $definitionSender->replaceArgument(1, new Reference($mailServiceProvider));
+        $container->getDefinition(Sender::class)
+            ->replaceArgument(0, new Reference($senderProvider))
+            ->replaceArgument(1, new Reference($mailProvider));
     }
 }
