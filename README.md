@@ -63,8 +63,12 @@ extellient_mail:
     mail_sender_service_provider: 'Extellient\MailBundle\Sender\SwiftMailSender' #The Mail provider that will be use to send mails
 ```
 
-Insert your first template inside your database
--------------
+## Usage
+
+
+
+### Insert your first template inside your database
+
 
 ```sql
 INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `mail_body`, `code`) VALUES (1, '2018-03-14 09:44:28', '2018-04-20 15:11:38', 'Reset your password', '<p>Hello,<br /><br />{{link_password_reset}}', 'reset_password'),
@@ -89,8 +93,8 @@ INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `
 
 After to go to this page, check your data inside your table Mail and you should see your first entry inside it
 
-Send all your mail
--------------
+### Send all your mail
+
 This command will send all the mail inside your table Mail, where sent_date = null
 
 ```bash
