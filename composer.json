@@ -31,6 +31,14 @@
         {
             "name": "Thomas Chapuis",
             "email": "tchapuis@extellient.com"
+        },
+        {
+            "name": "Yohan Thomas",
+            "email": "ythomas@extellient.com"
+        },
+        {
+            "name": "Nicolas Lemouton",
+            "email": "nlemouton@extellient.com"
         }
     ],
     "autoload": {
