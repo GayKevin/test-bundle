@@ -47,10 +47,6 @@ class MailSenderCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $input->validate();
-
         $this->mailSenderService->sendAll();
-
-        $output->writeln('Mail sent');
     }
 }

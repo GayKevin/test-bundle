@@ -115,6 +115,6 @@ After to go to this page, check your data inside your table Mail and you should 
 This command will send all the mail inside your table Mail, where sent_date = null
 
 ```bash
-php bin/console extellient:mailbundle:send
+php bin/console extellient:mail:send
 
 ```
