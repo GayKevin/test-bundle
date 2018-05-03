@@ -5,8 +5,6 @@ namespace Extellient\MailBundle\Provider\Mail;
 
 
 use Extellient\MailBundle\Entity\MailInterface;
-use Extellient\MailBundle\Entity\MailTemplateInterface;
-use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
 
 interface MailProviderInterface
 {

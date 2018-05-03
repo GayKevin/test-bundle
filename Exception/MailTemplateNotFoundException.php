@@ -4,8 +4,6 @@
 namespace Extellient\MailBundle\Exception;
 
 
-use Throwable;
-
 /**
  * Class MailTemplateNotFound
  * @package Extellient\MailBundle\Exception
