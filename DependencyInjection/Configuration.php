@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\DependencyInjection;
 
-
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 

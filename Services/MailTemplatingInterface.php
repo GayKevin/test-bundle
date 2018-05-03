@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Services;
 
-
 interface MailTemplatingInterface
 {
     /**

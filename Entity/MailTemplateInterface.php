@@ -2,7 +2,6 @@
 
 namespace Extellient\MailBundle\Entity;
 
-
 /**
  * Interface MailTemplateInterface
  * @package Extellient\MailBundle\Entity

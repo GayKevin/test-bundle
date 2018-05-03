@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Sender;
 
-
 use Extellient\MailBundle\Entity\MailInterface;
 use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;

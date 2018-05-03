@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Services;
 
-
 use Extellient\MailBundle\Entity\Mail;
 use Extellient\MailBundle\Entity\MailInterface;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;

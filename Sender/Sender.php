@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Sender;
 
-
 use Extellient\MailBundle\Entity\MailInterface;
 use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
@@ -39,8 +38,7 @@ class Sender
         MailSenderInterface $mailSender,
         MailProviderInterface $mailEntityProvider,
         LoggerInterface $logger
-    )
-    {
+    ) {
         $this->mailSender = $mailSender;
         $this->logger = $logger;
         $this->mailEntityProvider = $mailEntityProvider;

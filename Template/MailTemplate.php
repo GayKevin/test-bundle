@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Template;
 
-
 use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
 use Extellient\MailBundle\Provider\Template\MailTemplateProviderInterface;
 use Psr\Log\LoggerInterface;
@@ -38,8 +37,7 @@ class MailTemplate
         MailTemplateProviderInterface $mailProvider,
         Twig_Environment $twig,
         LoggerInterface $logger
-    )
-    {
+    ) {
         $this->mailProvider = $mailProvider;
         $this->twig = $twig;
         $this->logger = $logger;

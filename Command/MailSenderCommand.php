@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Command;
 
-
 use Extellient\MailBundle\Sender\Sender;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

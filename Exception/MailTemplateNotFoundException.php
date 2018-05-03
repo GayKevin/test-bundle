@@ -3,7 +3,6 @@
 
 namespace Extellient\MailBundle\Exception;
 
-
 /**
  * Class MailTemplateNotFound
  * @package Extellient\MailBundle\Exception

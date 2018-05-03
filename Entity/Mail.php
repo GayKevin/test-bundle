@@ -2,7 +2,6 @@
 
 namespace Extellient\MailBundle\Entity;
 
-
 use Doctrine\ORM\Mapping as ORM;
 
 /**
