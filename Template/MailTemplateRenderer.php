@@ -2,7 +2,6 @@
 
 namespace Extellient\MailBundle\Template;
 
-use Extellient\MailBundle\Entity\MailTemplate;
 use Extellient\MailBundle\Entity\MailTemplateInterface;
 use Extellient\MailBundle\Exception\MailTemplateNotGeneratedException;
 use Psr\Log\LoggerInterface;
