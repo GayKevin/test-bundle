@@ -5,7 +5,7 @@ Installation
 
 With [composer](http://packagist.org), require:
 
-`composer require extellient/::class => ['all' => true],`
+`composer require extellient/mail-bundle`
 
 Then enable it in your kernel:
 
