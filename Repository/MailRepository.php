@@ -7,13 +7,13 @@ use Extellient\MailBundle\Entity\Mail;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * Class MailRepository
- * @package Extellient\MailBundle\Repository
+ * Class MailRepository.
  */
 class MailRepository extends ServiceEntityRepository
 {
     /**
      * MailRepository constructor.
+     *
      * @param RegistryInterface $registry
      */
     public function __construct(RegistryInterface $registry)
@@ -23,6 +23,7 @@ class MailRepository extends ServiceEntityRepository
 
     /**
      * @param null $sendDate
+     *
      * @return array
      */
     public function findBySentDate($sendDate = null)

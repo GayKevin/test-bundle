@@ -7,13 +7,13 @@ use Extellient\MailBundle\Entity\MailTemplate;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * Class MailTemplateRepository
- * @package Extellient\MailBundle\Repository
+ * Class MailTemplateRepository.
  */
 class MailTemplateRepository extends ServiceEntityRepository
 {
     /**
      * MailTemplateRepository constructor.
+     *
      * @param RegistryInterface $registry
      */
     public function __construct(RegistryInterface $registry)
@@ -23,6 +23,7 @@ class MailTemplateRepository extends ServiceEntityRepository
 
     /**
      * @param $code
+     *
      * @return MailTemplate
      */
     public function findOneByCode($code)
