@@ -75,7 +75,7 @@ INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `
 ```
 
 ```php
-// src/controller/myController.php
+// src/controller/HomeController.php
 
 <?php
 
