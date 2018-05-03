@@ -71,13 +71,15 @@ INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `
 ```
 
 ```php
+// src/controller/myController.php
+
     /**
      * @Route("/", name="home")
      * @param MailTemplating $mailTemplating
      */
     public function indexAction(MailTemplating $mailTemplating)
     {
-        $mail = $mailTemplating->createEmail('reset_password', 'kgya@extellient.com', [
+        $mail = $mailTemplating->createEmail('reset_password', 'your-email@your-email.com', [
             'link_password_reset' => 'wwww.test.com/reset-link'
         ]);
         $mailTemplating->getMailService()->save($mail);
