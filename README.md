@@ -37,7 +37,6 @@ php bin/console doctrine:migrations:update
 ```
 
 
-```
 Configuration
 -------------
 
@@ -64,7 +63,6 @@ extellient_mail:
     mail_sender_service_provider: 'Extellient\MailBundle\Sender\SwiftMailSender' #The Mail provider that will be use to send mails
 ```
 
-```
 Insert your first template inside your database
 -------------
 
@@ -88,7 +86,6 @@ INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `
 
 After to go to this page, check your data inside your table Mail and you should see your first entry inside it
 
-```
 Send all your mail
 -------------
 This command will send all the mail inside your table Mail, where sent_date = null
