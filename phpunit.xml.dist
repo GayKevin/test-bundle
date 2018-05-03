@@ -17,4 +17,18 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>Command</directory>
+            <directory>DependencyInjection</directory>
+            <directory>Entity</directory>
+            <directory>Exception</directory>
+            <directory>Provider</directory>
+            <directory>Repository</directory>
+            <directory>Sender</directory>
+            <directory>Services</directory>
+            <directory>Template</directory>
+        </whitelist>
+    </filter>
 </phpunit>
