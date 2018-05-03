@@ -13,7 +13,7 @@ class MailSenderException extends \Exception
      * MailTemplateNotFoundException constructor.
      * @param $recipients
      */
-    public function __construct($recipients = [])
+    public function __construct()
     {
         parent::__construct('Mail not send');
     }
