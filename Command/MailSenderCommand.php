@@ -1,0 +1,53 @@
+<?php
+
+
+namespace Extellient\MailBundle\Command;
+
+
+use Extellient\MailBundle\Sender\Sender;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+/**
+ * Class MailSender
+ * @package Extellient\MailBundle\Command
+ */
+class MailSenderCommand extends Command
+{
+    /**
+     * @var Sender
+     */
+    private $mailSenderService;
+
+    /**
+     * MailSenderCommand constructor.
+     * @param Sender $mailSenderService
+     */
+    public function __construct(Sender $mailSenderService)
+    {
+        $this->mailSenderService = $mailSenderService;
+        parent::__construct();
+    }
+
+    /**
+     * Configure the command
+     */
+    protected function configure()
+    {
+        $this
+            ->setDescription('Send mail from the database with Mail Bundle')
+            ->setHelp('This command allows you to send mail')
+        ;
+    }
+
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|null|void
+     */
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $this->mailSenderService->sendAll();
+    }
+}
