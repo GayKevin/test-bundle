@@ -32,7 +32,7 @@ return [
 
 Now you have to update your database to get the two tables (`Mail`, `MailTemplate`)
 ```bash
-// Symfony 3.4+
+#Symfony 3.4+
 php bin/console doctrine:migrations:update
 ```
 
@@ -68,6 +68,7 @@ Insert your first template inside your database
 
 ```sql
 INSERT INTO `mail_template` (`id`, `created_at`, `updated_at`, `mail_subject`, `mail_body`, `code`) VALUES (1, '2018-03-14 09:44:28', '2018-04-20 15:11:38', 'Reset your password', '<p>Hello,<br /><br />{{link_password_reset}}', 'reset_password'),
+```
 
 ```php
     /**
