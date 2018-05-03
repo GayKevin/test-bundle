@@ -56,7 +56,7 @@ class MailTemplateRenderer implements MailTemplateRendererInterface
 
             return $baseTemplate->render(['body_content' => $bodyContent]);
         } catch (\Twig_Error $e) {
-            $this->logger->error('Impossible to generate Mail Body template', [print_r($variables)]);
+            $this->logger->error('Impossible to generate Mail Body template', $variables);
             throw new MailTemplateNotGeneratedException($e);
         }
     }
@@ -73,7 +73,7 @@ class MailTemplateRenderer implements MailTemplateRendererInterface
             $template = $this->twig->createTemplate($this->mailTemplate->getMailSubject());
             return $template->render($variables);
         } catch (\Twig_Error $e) {
-            $this->logger->error('Impossible to generate Mail Body template', [print_r($variables)]);
+            $this->logger->error('Impossible to generate Mail Body template', $variables);
             throw new MailTemplateNotGeneratedException($e);
         }
     }
