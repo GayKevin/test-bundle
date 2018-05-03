@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\Services;
 
 use Extellient\MailBundle\Entity\MailInterface;
@@ -12,6 +11,7 @@ interface MailerInterface
      * @param $mailBody
      * @param $recipients
      * @param $attachements
+     *
      * @return MailInterface
      */
     public function createEmail($mailSubject, $mailBody, $recipients, $attachements);
@@ -21,8 +21,5 @@ interface MailerInterface
      */
     public function getMail();
 
-    /**
-     * @return void
-     */
     public function save();
 }

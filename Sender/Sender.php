@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\Sender;
 
 use Extellient\MailBundle\Entity\MailInterface;
@@ -9,12 +8,10 @@ use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class Sender
- * @package Extellient\MailBundle\Sender
+ * Class Sender.
  */
 class Sender
 {
-
     /**
      * @var MailSenderInterface
      */
@@ -30,8 +27,9 @@ class Sender
 
     /**
      * Sender constructor.
-     * @param MailSenderInterface $mailSender
-     * @param LoggerInterface $logger
+     *
+     * @param MailSenderInterface   $mailSender
+     * @param LoggerInterface       $logger
      * @param MailProviderInterface $mailEntityProvider
      */
     public function __construct(
@@ -45,7 +43,7 @@ class Sender
     }
 
     /**
-     * Send all mail
+     * Send all mail.
      */
     public function sendAll()
     {
@@ -54,6 +52,7 @@ class Sender
         } catch (\Exception $e) {
             //It should never happens except if the Doctrine Array is not correct (DC2Type:array)
             $this->logger->critical('Impossible to get mails from database', ['message' => $e->getMessage()]);
+
             return;
         }
 
@@ -76,6 +75,7 @@ class Sender
 
     /**
      * @param MailInterface $mail
+     *
      * @return array
      */
     public function getMailLog(MailInterface $mail)
@@ -85,7 +85,7 @@ class Sender
             'recipientsCopy' => $mail->getRecipientCopy(),
             'recipentsHiddenCopy' => $mail->getRecipientHiddenCopy(),
             'subject' => $mail->getSubject(),
-            'id' => $mail->getId()
+            'id' => $mail->getId(),
         ];
     }
 }

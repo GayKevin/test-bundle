@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\Services;
 
 use Extellient\MailBundle\Entity\Mail;
@@ -8,8 +7,7 @@ use Extellient\MailBundle\Entity\MailInterface;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 
 /**
- * Class MailService
- * @package Extellient\MailBundle\Services
+ * Class MailService.
  */
 class Mailer
 {
@@ -32,10 +30,11 @@ class Mailer
 
     /**
      * MailService constructor.
+     *
      * @param MailProviderInterface $mailProvider
-     * @param string $mailAddressFrom
-     * @param string $mailAliasFrom
-     * @param string $mailReplyTo
+     * @param string                $mailAddressFrom
+     * @param string                $mailAliasFrom
+     * @param string                $mailReplyTo
      */
     public function __construct(
         MailProviderInterface $mailProvider,
@@ -50,10 +49,11 @@ class Mailer
     }
 
     /**
-     * @param string $mailSubject
-     * @param string $mailBody
+     * @param string       $mailSubject
+     * @param string       $mailBody
      * @param array|string $recipients
      * @param array|string $attachements
+     *
      * @return MailInterface
      */
     public function createEmail($mailSubject, $mailBody, $recipients, $attachements)
@@ -76,7 +76,8 @@ class Mailer
     }
 
     /**
-     * Flush the Mail
+     * Flush the Mail.
+     *
      * @param $mails
      */
     public function save($mails)

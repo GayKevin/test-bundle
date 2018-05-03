@@ -1,18 +1,15 @@
 <?php
 
-
 namespace Extellient\MailBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Class Configuration
- * @package Extellient\MailBundle\DependencyInjection
+ * Class Configuration.
  */
 class Configuration implements ConfigurationInterface
 {
-
     /**
      * Generates the configuration tree builder.
      *

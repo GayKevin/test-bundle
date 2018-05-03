@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\DependencyInjection;
 
 use Extellient\MailBundle\Sender\Sender;
@@ -15,11 +14,10 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class MailExtension extends Extension
 {
-
     /**
      * Loads a specific configuration.
      *
-     * @param array $configs
+     * @param array            $configs
      * @param ContainerBuilder $container
      */
     public function load(array $configs, ContainerBuilder $container)

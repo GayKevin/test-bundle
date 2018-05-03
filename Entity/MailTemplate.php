@@ -5,8 +5,8 @@ namespace Extellient\MailBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class MailTemplate
- * @package Extellient\MailBundle\Entity
+ * Class MailTemplate.
+ *
  * @ORM\Entity(repositoryClass="Extellient\MailBundle\Repository\MailTemplateRepository")
  * @ORM\Table(name="mail_template")
  */

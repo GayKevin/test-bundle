@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Extellient\MailBundle\Provider\Template;
-
 
 use Doctrine\ORM\EntityManagerInterface;
 use Extellient\MailBundle\Entity\MailTemplate;
@@ -10,8 +8,7 @@ use Extellient\MailBundle\Entity\MailTemplateInterface;
 use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
 
 /**
- * Class MailProviderDoctrine
- * @package Extellient\MailBundle\Services
+ * Class MailProviderDoctrine.
  */
 class DoctrineMailTemplateProvider implements MailTemplateProviderInterface
 {
@@ -22,6 +19,7 @@ class DoctrineMailTemplateProvider implements MailTemplateProviderInterface
 
     /**
      * MailProviderDoctrine constructor.
+     *
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
@@ -31,7 +29,9 @@ class DoctrineMailTemplateProvider implements MailTemplateProviderInterface
 
     /**
      * @param $code
+     *
      * @return MailTemplateInterface
+     *
      * @throws MailTemplateNotFoundException
      */
     public function findOneTemplateByCode($code)

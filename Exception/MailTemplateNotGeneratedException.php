@@ -1,16 +1,15 @@
 <?php
 
-
 namespace Extellient\MailBundle\Exception;
 
 /**
- * Class MailTemplateNotFound
- * @package Extellient\MailBundle\Exception
+ * Class MailTemplateNotFound.
  */
 class MailTemplateNotGeneratedException extends \Exception
 {
     /**
      * MailTemplateNotGeneratedException constructor.
+     *
      * @param \Exception $e
      */
     public function __construct(\Exception $e)

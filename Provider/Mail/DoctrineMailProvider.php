@@ -1,16 +1,13 @@
 <?php
 
-
 namespace Extellient\MailBundle\Provider\Mail;
-
 
 use Doctrine\ORM\EntityManagerInterface;
 use Extellient\MailBundle\Entity\Mail;
 use Extellient\MailBundle\Entity\MailInterface;
 
 /**
- * Class MailProviderDoctrine
- * @package Extellient\MailBundle\Services
+ * Class MailProviderDoctrine.
  */
 class DoctrineMailProvider implements MailProviderInterface
 {
@@ -21,6 +18,7 @@ class DoctrineMailProvider implements MailProviderInterface
 
     /**
      * MailProviderDoctrine constructor.
+     *
      * @param EntityManagerInterface $em
      */
     public function __construct(EntityManagerInterface $em)
@@ -29,9 +27,9 @@ class DoctrineMailProvider implements MailProviderInterface
     }
 
     /**
-     * Save all mails to the database
+     * Save all mails to the database.
+     *
      * @param $mails
-     * @return void
      */
     public function save($mails)
     {
@@ -41,7 +39,7 @@ class DoctrineMailProvider implements MailProviderInterface
 
         //Persist all mails
         foreach ($mails as $mail) {
-           $this->em->persist($mail);
+            $this->em->persist($mail);
         }
 
         //Flush all mails

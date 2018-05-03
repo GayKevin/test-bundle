@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\Template;
 
 use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
@@ -9,8 +8,7 @@ use Psr\Log\LoggerInterface;
 use Twig_Environment;
 
 /**
- * Class Template
- * @package Extellient\MailBundle\Services
+ * Class Template.
  */
 class MailTemplate
 {
@@ -29,9 +27,10 @@ class MailTemplate
 
     /**
      * Template constructor.
+     *
      * @param MailTemplateProviderInterface $mailProvider
-     * @param Twig_Environment $twig
-     * @param LoggerInterface $logger
+     * @param Twig_Environment              $twig
+     * @param LoggerInterface               $logger
      */
     public function __construct(
         MailTemplateProviderInterface $mailProvider,
@@ -45,13 +44,16 @@ class MailTemplate
 
     /**
      * @param $code
+     *
      * @return MailTemplateRenderer
+     *
      * @throws MailTemplateNotFoundException
-     * Return the rendered mail body from MailTemplate code
+     *                                       Return the rendered mail body from MailTemplate code
      */
     public function getTemplate($code)
     {
         $mailTemplate = $this->mailProvider->findOneTemplateByCode($code);
+
         return new MailTemplateRenderer($this->twig, $mailTemplate, $this->logger);
     }
 }

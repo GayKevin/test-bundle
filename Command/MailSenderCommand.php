@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\Command;
 
 use Extellient\MailBundle\Sender\Sender;
@@ -9,8 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Class MailSender
- * @package Extellient\MailBundle\Command
+ * Class MailSender.
  */
 class MailSenderCommand extends Command
 {
@@ -21,6 +19,7 @@ class MailSenderCommand extends Command
 
     /**
      * MailSenderCommand constructor.
+     *
      * @param Sender $mailSenderService
      */
     public function __construct(Sender $mailSenderService)
@@ -30,7 +29,7 @@ class MailSenderCommand extends Command
     }
 
     /**
-     * Configure the command
+     * Configure the command.
      */
     protected function configure()
     {
@@ -41,8 +40,9 @@ class MailSenderCommand extends Command
     }
 
     /**
-     * @param InputInterface $input
+     * @param InputInterface  $input
      * @param OutputInterface $output
+     *
      * @return int|null|void
      */
     protected function execute(InputInterface $input, OutputInterface $output)

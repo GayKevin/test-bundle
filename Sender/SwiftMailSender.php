@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Extellient\MailBundle\Sender;
 
 use Extellient\MailBundle\Entity\MailInterface;
@@ -11,8 +10,7 @@ use Swift_Mailer;
 use Swift_Message;
 
 /**
- * Class MailSenderService
- * @package Extellient\MailBundle\Services
+ * Class MailSenderService.
  */
 class SwiftMailSender implements MailSenderInterface
 {
@@ -27,7 +25,8 @@ class SwiftMailSender implements MailSenderInterface
 
     /**
      * MailSenderService constructor.
-     * @param Swift_Mailer $mailer
+     *
+     * @param Swift_Mailer          $mailer
      * @param MailProviderInterface $mailEntityProvider
      */
     public function __construct(Swift_Mailer $mailer, MailProviderInterface $mailEntityProvider)
@@ -38,6 +37,7 @@ class SwiftMailSender implements MailSenderInterface
 
     /**
      * @param MailInterface $mail
+     *
      * @return Swift_Message
      */
     public function initSwiftMessage(MailInterface $mail)
@@ -59,7 +59,9 @@ class SwiftMailSender implements MailSenderInterface
 
     /**
      * @param MailInterface $mail
+     *
      * @return mixed|void
+     *
      * @throws MailSenderException
      */
     public function send(MailInterface $mail)

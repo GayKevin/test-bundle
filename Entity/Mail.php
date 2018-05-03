@@ -5,8 +5,8 @@ namespace Extellient\MailBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Mail
- * @package Extellient\MailBundle\Entity
+ * Class Mail.
+ *
  * @ORM\Entity(repositoryClass="Extellient\MailBundle\Repository\MailRepository")
  * @ORM\Table(name="mail")
  */
@@ -81,9 +81,10 @@ class Mail implements MailInterface
 
     /**
      * Mail constructor.
+     *
      * @param string $subject
      * @param string $body
-     * @param array $recipients
+     * @param array  $recipients
      */
     public function __construct($subject, $body, array $recipients)
     {
@@ -255,7 +256,6 @@ class Mail implements MailInterface
 
     /**
      * @param string $recipient
-     * @return void
      */
     public function addRecipient($recipient)
     {
@@ -280,7 +280,6 @@ class Mail implements MailInterface
 
     /**
      * @param string $recipientCopy
-     * @return void
      */
     public function addRecipientCopy($recipientCopy)
     {
@@ -305,7 +304,6 @@ class Mail implements MailInterface
 
     /**
      * @param string $recipientHiddenCopy
-     * @return void
      */
     public function addRecipientHiddenCopy($recipientHiddenCopy)
     {
@@ -330,7 +328,6 @@ class Mail implements MailInterface
 
     /**
      * @param string $attachement
-     * @return void
      */
     public function addAttachement($attachement)
     {
@@ -338,8 +335,7 @@ class Mail implements MailInterface
     }
 
     /**
-     * Update the sent date
-     * @return void
+     * Update the sent date.
      */
     public function updateSentDate()
     {

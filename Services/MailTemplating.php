@@ -1,13 +1,11 @@
 <?php
 
-
 namespace Extellient\MailBundle\Services;
 
 use Extellient\MailBundle\Template\MailTemplate;
 
 /**
- * Class MailManagerService
- * @package Extellient\MailBundle\Services
+ * Class MailManagerService.
  */
 class MailTemplating implements MailTemplatingInterface
 {
@@ -22,8 +20,9 @@ class MailTemplating implements MailTemplatingInterface
 
     /**
      * MailManagerService constructor.
+     *
      * @param MailTemplate $mailTemplate
-     * @param Mailer $mailService
+     * @param Mailer       $mailService
      */
     public function __construct(MailTemplate $mailTemplate, Mailer $mailService)
     {
@@ -32,11 +31,13 @@ class MailTemplating implements MailTemplatingInterface
     }
 
     /**
-     * @param string $templateCode
+     * @param string       $templateCode
      * @param array|string $recipients
-     * @param array $variables
+     * @param array        $variables
      * @param array|string $attachements
+     *
      * @return \Extellient\MailBundle\Entity\MailInterface
+     *
      * @throws \Extellient\MailBundle\Exception\MailTemplateNotFoundException
      * @throws \Extellient\MailBundle\Exception\MailTemplateNotGeneratedException
      * @throws \Throwable
@@ -48,6 +49,7 @@ class MailTemplating implements MailTemplatingInterface
         $attachements = []
     ) {
         $template = $this->mailTemplate->getTemplate($templateCode);
+
         return $this->mailService->createEmail(
             $template->getSubject($variables),
             $template->getBody($variables),

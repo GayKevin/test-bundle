@@ -3,8 +3,7 @@
 namespace Extellient\MailBundle\Entity;
 
 /**
- * Interface MailInterface
- * @package Extellient\MailBundle\Entity
+ * Interface MailInterface.
  */
 interface MailInterface
 {
@@ -12,10 +11,12 @@ interface MailInterface
      * @return mixed
      */
     public function getId();
+
     /**
      * @param mixed $id
      */
     public function setId($id);
+
     /**
      * @return string
      */
@@ -25,6 +26,7 @@ interface MailInterface
      * @param string $subject
      */
     public function setSubject($subject);
+
     /**
      * @return string
      */
@@ -40,7 +42,6 @@ interface MailInterface
      */
     public function getSentDate();
 
-
     /**
      * @param \DateTime $sentDate
      */
@@ -50,7 +51,6 @@ interface MailInterface
      * @return string
      */
     public function getSenderAlias();
-
 
     /**
      * @param string $senderAlias
@@ -81,6 +81,7 @@ interface MailInterface
      * @return string
      */
     public function getSentError();
+
     /**
      * @param string $sentError
      */
@@ -118,7 +119,6 @@ interface MailInterface
 
     /**
      * @param string $recipientCopy
-     * @return void
      */
     public function addRecipientCopy($recipientCopy);
 
@@ -134,7 +134,6 @@ interface MailInterface
 
     /**
      * @param string $recipientHiddenCopy
-     * @return void
      */
     public function addRecipientHiddenCopy($recipientHiddenCopy);
 
@@ -148,8 +147,5 @@ interface MailInterface
      */
     public function setAttachement(array $attachement);
 
-    /**
-     * @return void
-     */
     public function updateSentDate();
 }

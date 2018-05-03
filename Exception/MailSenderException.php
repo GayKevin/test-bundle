@@ -1,11 +1,9 @@
 <?php
 
-
 namespace Extellient\MailBundle\Exception;
 
 /**
- * Class SenderException
- * @package Extellient\MailBundle\Exception
+ * Class SenderException.
  */
 class MailSenderException extends \Exception
 {
