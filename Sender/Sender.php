@@ -35,7 +35,11 @@ class Sender
      * @param LoggerInterface $logger
      * @param MailProviderInterface $mailEntityProvider
      */
-    public function __construct(MailSenderInterface $mailSender,  MailProviderInterface $mailEntityProvider, LoggerInterface $logger)
+    public function __construct(
+        MailSenderInterface $mailSender,
+        MailProviderInterface $mailEntityProvider,
+        LoggerInterface $logger
+    )
     {
         $this->mailSender = $mailSender;
         $this->logger = $logger;

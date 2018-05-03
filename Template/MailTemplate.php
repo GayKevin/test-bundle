@@ -34,7 +34,11 @@ class MailTemplate
      * @param Twig_Environment $twig
      * @param LoggerInterface $logger
      */
-    public function __construct(MailTemplateProviderInterface $mailProvider, Twig_Environment $twig, LoggerInterface $logger)
+    public function __construct(
+        MailTemplateProviderInterface $mailProvider,
+        Twig_Environment $twig,
+        LoggerInterface $logger
+    )
     {
         $this->mailProvider = $mailProvider;
         $this->twig = $twig;
