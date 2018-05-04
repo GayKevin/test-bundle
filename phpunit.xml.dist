@@ -33,6 +33,16 @@
         </whitelist>
     </filter>
 
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">.</directory>
+            <exclude>
+                <directory>./Tests</directory>
+                <directory>./.github</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+
     <logging>
         <log type="coverage-clover" target="clover.xml"/>
     </logging>
