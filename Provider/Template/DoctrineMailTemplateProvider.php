@@ -2,11 +2,8 @@
 
 namespace Extellient\MailBundle\Provider\Template;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Extellient\MailBundle\Entity\MailTemplate;
 use Extellient\MailBundle\Entity\MailTemplateInterface;
 use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
-use Extellient\MailBundle\Repository\MailRepository;
 use Extellient\MailBundle\Repository\MailTemplateRepository;
 
 /**

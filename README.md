@@ -48,12 +48,12 @@ Configuration
 You need to configure the default mail.
 
 ```yaml
-# app/config/parameters.yml Symfony 3.4+
-# config/package/parameters.yml Symfony 4+
-parameters:
-    mail_address_from: '%env(MAIL_ADDRESS_FROM)%'
-    mail_alias_from: '%env(MAIL_ALIAS_FROM)%'
-    mail_reply_to: '%env(MAIL_REPLY_TO)%'
+# app/config/services.yml Symfony 3.4+
+# config/package/extellient_mail.yaml Symfony 4+
+extellient_mail:
+    mail_address_from: '<your-email@address.com>'
+    mail_alias_from: '<your-email@address.com>'
+    mail_reply_to: '<your-email@address.com>'
 ```
 
 The default configuration use the Doctrine bridge for the database, Twig for the templating and SwiftMailer to send mail.

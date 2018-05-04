@@ -9,8 +9,8 @@ use Extellient\MailBundle\Provider\Template\DoctrineMailTemplateProvider;
 use Extellient\MailBundle\Repository\MailTemplateRepository;
 use PHPUnit\Framework\TestCase;
 
-class DoctrineMailTemplateProviderTest extends TestCase{
-
+class DoctrineMailTemplateProviderTest extends TestCase
+{
     private $mailTemplateRepository;
     private $doctrineMailTemplateProvider;
 
