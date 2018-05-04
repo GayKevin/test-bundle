@@ -43,12 +43,13 @@ class MailTemplate
     }
 
     /**
+     * Return the rendered mail body from MailTemplate code
+     *
      * @param $code
      *
      * @return MailTemplateRenderer
      *
      * @throws MailTemplateNotFoundException
-     *                                       Return the rendered mail body from MailTemplate code
      */
     public function getTemplate($code)
     {
