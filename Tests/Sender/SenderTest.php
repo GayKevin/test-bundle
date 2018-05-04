@@ -5,6 +5,7 @@ namespace Extellient\MailBundle\Tests\Sender;
 
 
 use Extellient\MailBundle\Entity\Mail;
+use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Sender\MailSenderInterface;
 use Extellient\MailBundle\Sender\Sender;
@@ -40,6 +41,30 @@ class SenderTest extends TestCase
         $this->mailProviderInterface = $this->createMock(MailProviderInterface::class);
         $this->loggerInterface = $this->createMock(LoggerInterface::class);
         $this->sender = new Sender($this->mailSenderInterface, $this->mailProviderInterface, $this->loggerInterface);
+    }
+
+    public function testSendAll()
+    {
+        $mailCollection = [
+            new Mail('subject1', 'body1', ['recipient1@test.com']),
+            new Mail('subject2', 'body2', ['recipient2@test.com'])
+        ];
+
+        $this->mailProviderInterface->expects($this->once())->method('findAllMail')->willReturn($mailCollection);
+
+        $this->mailProviderInterface->expects($this->once())->method('save')->with($mailCollection);
+
+        $this->sender->sendAll();
+    }
+
+    public function testSendOneWithSuccess()
+    {
+        $mail = new Mail('subject', 'body', ['recipient@test.com']);
+
+        $this->mailSenderInterface->expects($this->once())->method('send')->with($mail);
+        $this->loggerInterface->expects($this->once())->method('info');
+
+        $this->sender->sendOne($mail);
     }
 
     public function testGetMailLog()
