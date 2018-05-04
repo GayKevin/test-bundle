@@ -5,14 +5,30 @@ namespace Extellient\MailBundle\Tests\Template;
 use Extellient\MailBundle\Provider\Template\MailTemplateProviderInterface;
 use Extellient\MailBundle\Template\MailTemplate;
 use Extellient\MailBundle\Template\MailTemplateRenderer;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 class MailTemplateTest extends TestCase
 {
+    /**
+     * @var MailTemplate
+     */
     private $mailTemplate;
+
+    /**
+     * @var MailTemplateProviderInterface | MockObject
+     */
     private $mailTemplateProvider;
+
+    /**
+     * @var \Twig_Environment | MockObject
+     */
     private $twig;
+
+    /**
+     * @var LoggerInterface | MockObject
+     */
     private $logger;
 
     protected function setUp()
