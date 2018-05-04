@@ -48,7 +48,8 @@ class MailerTest extends TestCase
         $this->assertEquals('mailReplyTo@test.com', $mail->getReplyToEmail());
         $this->assertEquals([], $mail->getAttachement());
 
-        $recipArray = $this->mailer->createEmail('subject',
+        $recipArray = $this->mailer->createEmail(
+            'subject',
             'body',
             ['test@test.com', 'test2@test.com'],
             'attachement'

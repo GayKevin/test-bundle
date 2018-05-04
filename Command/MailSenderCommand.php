@@ -21,6 +21,7 @@ class MailSenderCommand extends Command
      * MailSenderCommand constructor.
      *
      * @param Sender $mailSenderService
+     *
      * @codeCoverageIgnore
      */
     public function __construct(Sender $mailSenderService)
@@ -47,6 +48,8 @@ class MailSenderCommand extends Command
      * @param OutputInterface $output
      *
      * @return int|null|void
+     *
+     * @codeCoverageIgnore
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
