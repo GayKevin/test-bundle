@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Extellient\MailBundle\Tests\DependencyInjection;
-
 
 use Extellient\MailBundle\DependencyInjection\Configuration;
 use Extellient\MailBundle\Provider\Mail\DoctrineMailProvider;
@@ -12,12 +10,13 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
 /**
- * Class ConfigurationTest
+ * Class ConfigurationTest.
  */
 class ConfigurationTest extends TestCase
 {
     /**
      * @dataProvider dataForProcessedConfiguration
+     *
      * @param $configs
      * @param $expectedConfig
      */
@@ -42,8 +41,8 @@ class ConfigurationTest extends TestCase
                     'mail_service_provider' => DoctrineMailProvider::class,
                     'mail_template_service_provider' => DoctrineMailTemplateProvider::class,
                     'mail_sender_service_provider' => SwiftMailSender::class,
-                ]
-            ]
+                ],
+            ],
         ];
     }
 }
