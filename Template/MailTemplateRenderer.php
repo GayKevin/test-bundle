@@ -49,11 +49,14 @@ class MailTemplateRenderer implements MailTemplateRendererInterface
     public function getBody(array $variables = [])
     {
         try {
+            // @codeCoverageIgnoreStart
+            // How to test Twig_Template abstract ? TODO
             $baseTemplate = $this->twig->load('@Mail/base.html.twig');
             $bodyTemplate = $this->twig->createTemplate($this->mailTemplate->getMailBody());
             $bodyContent = $bodyTemplate->render($variables);
 
             return $baseTemplate->render(['body_content' => $bodyContent]);
+            // @codeCoverageIgnoreEnd
         } catch (\Twig_Error $e) {
             $this->logger->error('Impossible to generate Mail Body template', $variables);
             throw new MailTemplateNotGeneratedException($e);
@@ -71,11 +74,13 @@ class MailTemplateRenderer implements MailTemplateRendererInterface
     public function getSubject(array $variables = [])
     {
         try {
+            // @codeCoverageIgnoreStart
+            // How to test Twig_Template abstract ? TODO
             $template = $this->twig->createTemplate($this->mailTemplate->getMailSubject());
-
             return $template->render($variables);
+            // @codeCoverageIgnoreEnd
         } catch (\Twig_Error $e) {
-            $this->logger->error('Impossible to generate Mail Body template', $variables);
+            $this->logger->error('Impossible to generate Mail Subject template', $variables);
             throw new MailTemplateNotGeneratedException($e);
         }
     }
