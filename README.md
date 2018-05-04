@@ -21,6 +21,7 @@ public function registerBundles()
         //...
         new Extellient\MailBundle\MailBundle(),
         //...
+    );
 ```
 
 ```php
