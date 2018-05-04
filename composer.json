@@ -43,5 +43,8 @@
     ],
     "autoload": {
         "psr-4": { "Extellient\\MailBundle\\": "" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Extellient\\MailBundle\\Tests\\": "Tests/" }
     }
 }

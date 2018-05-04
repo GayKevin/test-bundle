@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Extellient\MailBundle\tests\Sender;
+namespace Extellient\MailBundle\Tests\Sender;
 
 
 use PHPUnit\Framework\TestCase;
