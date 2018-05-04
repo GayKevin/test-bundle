@@ -2,8 +2,10 @@
 
 namespace Extellient\MailBundle\Tests\Services;
 
+use Extellient\MailBundle\Entity\Mail;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Services\Mailer;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -12,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 class MailerTest extends TestCase
 {
     /**
-     * @var MailProviderInterface
+     * @var MailProviderInterface|MockObject
      */
     private $mailProviderInterface;
     /**
@@ -46,13 +48,25 @@ class MailerTest extends TestCase
         $this->assertEquals('mailReplyTo@test.com', $mail->getReplyToEmail());
         $this->assertEquals([], $mail->getAttachement());
 
-        $recip_array = $this->mailer->createEmail('subject',
+        $recipArray = $this->mailer->createEmail('subject',
             'body',
             ['test@test.com', 'test2@test.com'],
             'attachement'
         );
 
-        $this->assertEquals(['test@test.com', 'test2@test.com'], $recip_array->getRecipient());
-        $this->assertEquals(['attachement'], $recip_array->getAttachement());
+        $this->assertEquals(['test@test.com', 'test2@test.com'], $recipArray->getRecipient());
+        $this->assertEquals(['attachement'], $recipArray->getAttachement());
+    }
+
+    public function testSave()
+    {
+        $mailCollection = [
+            new Mail('subject1', 'body1', ['recipient1@test.com']),
+            new Mail('subject2', 'body2', ['recipient2@test.com']),
+        ];
+
+        $this->mailProviderInterface->expects($this->once())->method('save')->with($mailCollection);
+
+        $this->mailer->save($mailCollection);
     }
 }
