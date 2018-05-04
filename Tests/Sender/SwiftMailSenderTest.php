@@ -53,6 +53,6 @@ class SwiftMailSenderTest extends TestCase
     {
         $mail = new Mail('subject', 'body', ['recipient@test.com']);
         $this->expectException(\Swift_RfcComplianceException::class);
-        $sent = $this->swiftMailerSender->send($mail);
+        $this->swiftMailerSender->send($mail);
     }
 }
