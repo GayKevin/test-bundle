@@ -33,12 +33,18 @@ class MailExtension extends Extension
         $mailProvider = $config['mail_service_provider'];
         $templateProvider = $config['mail_template_service_provider'];
         $senderProvider = $config['mail_sender_service_provider'];
+        $mailAddressFrom = $config['mail_address_from'];
+        $mailAliasFrom = $config['mail_alias_from'];
+        $mailReplyTo = $config['mail_reply_to'];
 
         $container->getDefinition(MailTemplate::class)->replaceArgument(0, new Reference($templateProvider));
 
         $container->getDefinition(SwiftMailSender::class)->replaceArgument(1, new Reference($mailProvider));
 
         $container->getDefinition(Mailer::class)->replaceArgument(0, new Reference($mailProvider));
+        $container->getDefinition(Mailer::class)->replaceArgument(1, $mailAddressFrom);
+        $container->getDefinition(Mailer::class)->replaceArgument(2, $mailAliasFrom);
+        $container->getDefinition(Mailer::class)->replaceArgument(3, $mailReplyTo);
 
         $container->getDefinition(Sender::class)
             ->replaceArgument(0, new Reference($senderProvider))

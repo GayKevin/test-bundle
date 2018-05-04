@@ -36,11 +36,20 @@ class ConfigurationTest extends TestCase
     {
         return [
             [
-                [],
+                [
+                    'extellient_mail' => [
+                        'mail_address_from' => 'test@test.com',
+                        'mail_alias_from' => 'test@test.com',
+                        'mail_reply_to' => 'test@test.com',
+                    ],
+                ],
                 [
                     'mail_service_provider' => DoctrineMailProvider::class,
                     'mail_template_service_provider' => DoctrineMailTemplateProvider::class,
                     'mail_sender_service_provider' => SwiftMailSender::class,
+                    'mail_address_from' => 'test@test.com',
+                    'mail_alias_from' => 'test@test.com',
+                    'mail_reply_to' => 'test@test.com',
                 ],
             ],
         ];
