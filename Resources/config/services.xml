@@ -8,7 +8,7 @@
             <argument type="service" id="doctrine.orm.entity_manager"/>
         </service>
         <service id="Extellient\MailBundle\Provider\Template\DoctrineMailTemplateProvider">
-            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="Extellient\MailBundle\Repository\MailTemplateRepository"/>
         </service>
         <service id="Extellient\MailBundle\Template\MailTemplate">
             <!--<argument type="service" id="doctrine.orm.entity_manager"/>-->

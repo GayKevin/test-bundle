@@ -6,6 +6,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Extellient\MailBundle\Entity\MailTemplate;
 use Extellient\MailBundle\Entity\MailTemplateInterface;
 use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
+use Extellient\MailBundle\Repository\MailRepository;
+use Extellient\MailBundle\Repository\MailTemplateRepository;
 
 /**
  * Class MailProviderDoctrine.
@@ -13,18 +15,18 @@ use Extellient\MailBundle\Exception\MailTemplateNotFoundException;
 class DoctrineMailTemplateProvider implements MailTemplateProviderInterface
 {
     /**
-     * @var EntityManagerInterface
+     * @var MailTemplateRepository
      */
-    private $em;
+    private $mailTemplateRepository;
 
     /**
      * MailProviderDoctrine constructor.
      *
-     * @param EntityManagerInterface $em
+     * @param MailTemplateRepository $mailTemplateRepository
      */
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(MailTemplateRepository $mailTemplateRepository)
     {
-        $this->em = $em;
+        $this->mailTemplateRepository = $mailTemplateRepository;
     }
 
     /**
@@ -36,10 +38,7 @@ class DoctrineMailTemplateProvider implements MailTemplateProviderInterface
      */
     public function findOneTemplateByCode($code)
     {
-        $mailTemplate = $this->em
-            ->getRepository(MailTemplate::class)
-            ->findOneByCode($code)
-        ;
+        $mailTemplate = $this->mailTemplateRepository->findOneByCode($code);
 
         if (!$mailTemplate instanceof MailTemplateInterface) {
             throw new MailTemplateNotFoundException();
