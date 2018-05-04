@@ -12,7 +12,10 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class ExtellientMailExtension extends Extension
+/**
+ * Class ExtellientMailExtension.
+ */
+class MailExtension extends Extension
 {
     /**
      * Loads a specific configuration.
@@ -40,5 +43,13 @@ class ExtellientMailExtension extends Extension
         $container->getDefinition(Sender::class)
             ->replaceArgument(0, new Reference($senderProvider))
             ->replaceArgument(1, new Reference($mailProvider));
+    }
+
+    /**
+     * @return string
+     */
+    public function getAlias()
+    {
+        return 'extellient_mail';
     }
 }
