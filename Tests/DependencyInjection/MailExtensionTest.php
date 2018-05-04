@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Extellient\MailBundle\Tests\DependencyInjection;
-
 
 use Extellient\MailBundle\DependencyInjection\MailExtension;
 use Extellient\MailBundle\Provider\Mail\DoctrineMailProvider;
@@ -16,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
 /**
- * Class MailExtensionTest
+ * Class MailExtensionTest.
  */
 class MailExtensionTest extends TestCase
 {
@@ -34,7 +32,6 @@ class MailExtensionTest extends TestCase
         $container->registerExtension(new MailExtension());
         $container->loadFromExtension('extellient_mail', []);
         $this->compileContainer($container);
-
 
         $this->assertEquals(
             DoctrineMailTemplateProvider::class,
@@ -66,7 +63,7 @@ class MailExtensionTest extends TestCase
             'kernel.charset' => 'UTF-8',
             'kernel.debug' => false,
             'kernel.root_dir' => __DIR__,
-            'kernel.bundles' => array()
+            'kernel.bundles' => array(),
         )));
 
         return $container;
@@ -78,5 +75,4 @@ class MailExtensionTest extends TestCase
         $container->getCompilerPassConfig()->setRemovingPasses(array());
         $container->compile();
     }
-
 }
