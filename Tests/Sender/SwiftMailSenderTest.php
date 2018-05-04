@@ -74,9 +74,9 @@ class SwiftMailSenderTest extends TestCase
         $mail->setSenderAlias('senderAlias');
 
         $this->mailer->expects($this->once())->method('send')
-            ->willReturnCallback(function($message, &$failed) {
-            $failed = ['test@test.com'];
-        });
+            ->willReturnCallback(function ($message, &$failed) {
+                $failed = ['test@test.com'];
+            });
 
         $this->expectException(MailSenderException::class);
 
