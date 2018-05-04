@@ -5,14 +5,30 @@ namespace Extellient\MailBundle\Tests\Template;
 use Extellient\MailBundle\Entity\MailTemplateInterface;
 use Extellient\MailBundle\Exception\MailTemplateNotGeneratedException;
 use Extellient\MailBundle\Template\MailTemplateRenderer;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class MailTemplateRendererTest.
+ */
 class MailTemplateRendererTest extends TestCase
 {
+    /**
+     * @var MailTemplateRenderer|MockObject
+     */
     private $mailTemplateRenderer;
+    /**
+     * @var \Twig_Environment|MockObject
+     */
     private $twig;
+    /**
+     * @var MailTemplateInterface|MockObject
+     */
     private $mailTemplate;
+    /**
+     * @var LoggerInterface|MockObject
+     */
     private $logger;
 
     protected function setUp()
