@@ -89,6 +89,7 @@ namespace App\Controller;
 
 
 use Extellient\MailBundle\Services\MailTemplating;
+use Extellient\MailBundle\Services\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -109,6 +110,17 @@ class HomeController extends Controller
         ]);
         $mailTemplating->getMailService()->save($mail);
     }
+
+    /**
+     * @Route("/mail", name="home")
+     * @param Mailer $mailer
+     */
+    public function mailAction(Mailer $mailer)
+    {
+        $mail = $mailer->createEmail('subject', 'body', 'kgya@extellient.com');
+        $mailer->save($mail);
+    }
+
 }
 
 ```
