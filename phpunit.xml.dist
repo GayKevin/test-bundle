@@ -24,18 +24,8 @@
     </testsuites>
 
     <filter>
-        <whitelist>
-            <directory>.</directory>
-            <exclude>
-                <directory>./Tests</directory>
-                <directory>./.github</directory>
-            </exclude>
-        </whitelist>
-    </filter>
-
-    <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">.</directory>
+            <directory>.</directory>
             <exclude>
                 <directory>./Tests</directory>
                 <directory>./.github</directory>
