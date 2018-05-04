@@ -21,6 +21,7 @@ class MailSenderCommand extends Command
      * MailSenderCommand constructor.
      *
      * @param Sender $mailSenderService
+     * @codeCoverageIgnore
      */
     public function __construct(Sender $mailSenderService)
     {
@@ -30,6 +31,8 @@ class MailSenderCommand extends Command
 
     /**
      * Configure the command.
+     *
+     * @codeCoverageIgnore
      */
     protected function configure()
     {
