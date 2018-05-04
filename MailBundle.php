@@ -12,6 +12,8 @@ class MailBundle extends Bundle
 {
     /**
      * {@inheritdoc}
+     *
+     * @codeCoverageIgnore
      */
     public function getContainerExtension()
     {
