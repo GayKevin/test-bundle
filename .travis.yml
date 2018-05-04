@@ -11,7 +11,8 @@ cache:
 
 before_script:
     - travis_retry composer self-update
-    - travis_retry composer install --no-interaction --prefer-source --dev --install-suggests
+    - travis_retry composer require twig/twig
+    - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
     - vendor/bin/phpunit --coverage-clover=coverage.xml
