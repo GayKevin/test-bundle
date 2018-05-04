@@ -49,14 +49,14 @@ class Mailer
     }
 
     /**
-     * @param string       $mailSubject
-     * @param string       $mailBody
-     * @param array|string $recipients
-     * @param array|string $attachements
+     * @param $mailSubject
+     * @param $mailBody
+     * @param $recipients
+     * @param array $attachements
      *
      * @return MailInterface
      */
-    public function createEmail($mailSubject, $mailBody, $recipients, $attachements)
+    public function createEmail($mailSubject, $mailBody, $recipients, $attachements = [])
     {
         if (!is_array($recipients)) {
             $recipients = [$recipients];
