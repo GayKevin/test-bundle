@@ -65,7 +65,6 @@ class Sender
         $this->mailEntityProvider->save($mails);
     }
 
-
     /**
      * Send one mail.
      *

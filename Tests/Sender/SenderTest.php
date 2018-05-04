@@ -1,11 +1,8 @@
 <?php
 
-
 namespace Extellient\MailBundle\Tests\Sender;
 
-
 use Extellient\MailBundle\Entity\Mail;
-use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Sender\MailSenderInterface;
 use Extellient\MailBundle\Sender\Sender;
@@ -13,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class SenderTest
+ * Class SenderTest.
  */
 class SenderTest extends TestCase
 {
@@ -47,7 +44,7 @@ class SenderTest extends TestCase
     {
         $mailCollection = [
             new Mail('subject1', 'body1', ['recipient1@test.com']),
-            new Mail('subject2', 'body2', ['recipient2@test.com'])
+            new Mail('subject2', 'body2', ['recipient2@test.com']),
         ];
 
         $this->mailProviderInterface->expects($this->once())->method('findAllMail')->willReturn($mailCollection);
@@ -89,7 +86,7 @@ class SenderTest extends TestCase
     {
         $mail = new Mail('subject', 'body', ['recipient@test.com']);
         $log = $this->sender->getMailLog($mail);
-        $this->assertInternalType('array',$log);
+        $this->assertInternalType('array', $log);
         $this->assertCount(5, $log);
         $this->assertArrayHasKey('recipients', $log);
         $this->assertArrayHasKey('recipientsCopy', $log);
@@ -97,5 +94,4 @@ class SenderTest extends TestCase
         $this->assertArrayHasKey('subject', $log);
         $this->assertArrayHasKey('id', $log);
     }
-
 }
