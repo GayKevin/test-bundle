@@ -3,7 +3,6 @@
 namespace Extellient\MailBundle\Tests\Sender;
 
 use Extellient\MailBundle\Entity\Mail;
-use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Sender\SwiftMailSender;
 use PHPUnit\Framework\TestCase;
