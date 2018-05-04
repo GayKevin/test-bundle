@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by Extellient.
- * User: tchapuis
- * Date: 04/05/2018
- * Time: 11:19
- */
 
 namespace Extellient\MailBundle\Tests\Sender;
 
 use Extellient\MailBundle\Entity\Mail;
+use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Sender\SwiftMailSender;
 use PHPUnit\Framework\TestCase;
@@ -33,6 +28,7 @@ class SwiftMailSenderTest extends TestCase
         $mail = new Mail('subject', 'body', ['recipient@test.com']);
         $mail->setSenderEmail('sender@test.com');
         $mail->setSenderAlias('senderAlias');
+        $mail->setAttachement(['test.pdf']);
 
         $message = $this->swiftMailerSender->initSwiftMessage($mail);
 
@@ -55,18 +51,6 @@ class SwiftMailSenderTest extends TestCase
         $sent = $this->swiftMailerSender->send($mail);
         $this->assertEquals(1, $sent);
     }
-
-//    public function testSendWithException()
-//    {
-//        $mail = new Mail('subject', 'body', ['recipient@test.com']);
-//        $mail->setSenderEmail('sender@test.com');
-//        $mail->setSenderAlias('senderAlias');
-//
-//        $this->mailer->expects($this->once())->method('send')->willReturn(1);
-//
-//        $sent = $this->swiftMailerSender->send($mail);
-//        $this->assertEquals(1, $sent);
-//    }
 
     public function testSendWithoutSenderEmail()
     {
