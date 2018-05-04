@@ -7,6 +7,7 @@ use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Sender\MailSenderInterface;
 use Extellient\MailBundle\Sender\Sender;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
@@ -20,15 +21,15 @@ class SenderTest extends TestCase
      */
     private $sender;
     /**
-     * @var MailSenderInterface
+     * @var MailSenderInterface|MockObject
      */
     private $mailSenderInterface;
     /**
-     * @var MailProviderInterface
+     * @var MailProviderInterface|MockObject
      */
     private $mailProviderInterface;
     /**
-     * @var LoggerInterface
+     * @var LoggerInterface|MockObject
      */
     private $loggerInterface;
 
