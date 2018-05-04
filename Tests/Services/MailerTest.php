@@ -48,14 +48,14 @@ class MailerTest extends TestCase
         $this->assertEquals('mailReplyTo@test.com', $mail->getReplyToEmail());
         $this->assertEquals([], $mail->getAttachement());
 
-        $recip_array = $this->mailer->createEmail('subject',
+        $recipArray = $this->mailer->createEmail('subject',
             'body',
             ['test@test.com', 'test2@test.com'],
             'attachement'
         );
 
-        $this->assertEquals(['test@test.com', 'test2@test.com'], $recip_array->getRecipient());
-        $this->assertEquals(['attachement'], $recip_array->getAttachement());
+        $this->assertEquals(['test@test.com', 'test2@test.com'], $recipArray->getRecipient());
+        $this->assertEquals(['attachement'], $recipArray->getAttachement());
     }
 
     public function testSave()
