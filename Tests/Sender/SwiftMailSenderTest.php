@@ -3,7 +3,6 @@
 namespace Extellient\MailBundle\Tests\Sender;
 
 use Extellient\MailBundle\Entity\Mail;
-use Extellient\MailBundle\Exception\MailSenderException;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 use Extellient\MailBundle\Sender\SwiftMailSender;
 use PHPUnit\Framework\TestCase;
@@ -54,6 +53,6 @@ class SwiftMailSenderTest extends TestCase
     {
         $mail = new Mail('subject', 'body', ['recipient@test.com']);
         $this->expectException(\Swift_RfcComplianceException::class);
-        $sent = $this->swiftMailerSender->send($mail);
+        $this->swiftMailerSender->send($mail);
     }
 }
