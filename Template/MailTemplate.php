@@ -43,7 +43,7 @@ class MailTemplate
     }
 
     /**
-     * Return the rendered mail body from MailTemplate code
+     * Return the rendered mail body from MailTemplate code.
      *
      * @param $code
      *

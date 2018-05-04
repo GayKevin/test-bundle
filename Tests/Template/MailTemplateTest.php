@@ -38,5 +38,4 @@ class MailTemplateTest extends TestCase
         $this->assertNotNull($template);
         $this->assertInstanceOf(MailTemplateRenderer::class, $template);
     }
-
 }
