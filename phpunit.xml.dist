@@ -29,6 +29,7 @@
             <exclude>
                 <directory>./Tests</directory>
                 <directory>./.github</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>
