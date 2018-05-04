@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by Extellient.
- * User: tchapuis
- * Date: 04/05/2018
- * Time: 11:19
- */
 
 namespace Extellient\MailBundle\Tests\Sender;
 
@@ -27,7 +21,6 @@ class SwiftMailSenderTest extends TestCase
         $this->swiftMailerSender = new SwiftMailSender($this->mailer, $this->mailEntityProvider);
     }
 
-
     public function testInitSwiftMessage()
     {
         $mail = new Mail('subject', 'body', ['recipient@test.com']);
@@ -41,7 +34,6 @@ class SwiftMailSenderTest extends TestCase
         $this->assertEquals('body', $message->getBody());
         $this->assertEquals(['recipient@test.com' => null], $message->getTo());
         $this->assertEquals(['sender@test.com' => 'senderAlias'], $message->getFrom());
-
     }
 
     public function testSendWithSuccess()
