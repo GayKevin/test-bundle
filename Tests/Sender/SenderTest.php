@@ -57,6 +57,13 @@ class SenderTest extends TestCase
         $this->sender->sendAll();
     }
 
+    public function testSendAllWithException()
+    {
+        $this->mailProviderInterface->expects($this->once())->method('findAllMail')->will($this->throwException(new \Exception()));
+        $this->loggerInterface->expects($this->once())->method('critical');
+        $this->sender->sendAll();
+    }
+
     public function testSendOneWithSuccess()
     {
         $mail = new Mail('subject', 'body', ['recipient@test.com']);
@@ -65,6 +72,17 @@ class SenderTest extends TestCase
         $this->loggerInterface->expects($this->once())->method('info');
 
         $this->sender->sendOne($mail);
+    }
+
+    public function testSendOneWithException()
+    {
+        $mail = new Mail('subject', 'body', ['recipient@test.com']);
+
+        $this->mailSenderInterface->expects($this->once())->method('send')->will($this->throwException(new MailSenderException()));
+        $this->loggerInterface->expects($this->once())->method('error');
+
+        $this->sender->sendOne($mail);
+        $this->assertEquals('Mail not send', $mail->getSentError());
     }
 
     public function testGetMailLog()

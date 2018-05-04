@@ -60,7 +60,7 @@ class SwiftMailSender implements MailSenderInterface
     /**
      * @param MailInterface $mail
      *
-     * @return mixed|void
+     * @return int
      *
      * @throws MailSenderException
      */
@@ -70,10 +70,12 @@ class SwiftMailSender implements MailSenderInterface
 
         $message = $this->initSwiftMessage($mail);
 
-        $this->mailer->send($message, $failedRecipient);
+        $sent = $this->mailer->send($message, $failedRecipient);
 
         if (!empty($failedRecipient)) {
             throw new MailSenderException();
         }
+
+        return $sent;
     }
 }
