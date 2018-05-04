@@ -100,6 +100,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends Controller
 {
     /**
+     * Create your mail from a template
      * @Route("/", name="home")
      * @param MailTemplating $mailTemplating
      */
@@ -112,6 +113,7 @@ class HomeController extends Controller
     }
 
     /**
+     * Create your mail without a template
      * @Route("/mail", name="home")
      * @param Mailer $mailer
      */
