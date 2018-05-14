@@ -24,6 +24,9 @@ class MailBuilder
     private $mailReplyTo;
 
     /**
+     * Create an entity Mail with the basic requierement for a mail.
+     * Which will return the Mail entity
+     *
      * @param $mailSubject
      * @param $mailBody
      * @param $recipients

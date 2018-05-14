@@ -32,6 +32,8 @@ class Mailer
     }
 
     /**
+     * Create an entity Mail with the basic requierement for a mail.
+     *
      * @param $mailSubject
      * @param $mailBody
      * @param $recipients

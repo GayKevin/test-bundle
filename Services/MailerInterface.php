@@ -21,5 +21,8 @@ interface MailerInterface
      */
     public function getMail();
 
-    public function save();
+    /**
+     * @param $mails
+     */
+    public function save($mails);
 }
