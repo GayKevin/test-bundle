@@ -25,7 +25,8 @@ class Mailer
      * @param MailProviderInterface $mailProvider
      * @param MailBuilder $mailBuilder
      */
-    public function __construct(MailProviderInterface $mailProvider, MailBuilder $mailBuilder) {
+    public function __construct(MailProviderInterface $mailProvider, MailBuilder $mailBuilder)
+    {
         $this->mailProvider = $mailProvider;
         $this->mailBuilder = $mailBuilder;
     }
