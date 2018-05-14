@@ -24,11 +24,10 @@
             <argument type="service" id="Symfony\Bridge\Doctrine\RegistryInterface"/>
             <tag name="doctrine.repository_service"/>
         </service>
+        <service id="Extellient\MailBundle\Services\MailBuilder"/>
         <service id="Extellient\MailBundle\Services\Mailer">
             <argument type="service" id="Extellient\MailBundle\Provider\Mail\MailProviderInterface"/>
-            <argument type="string">%mail_address_from%</argument>
-            <argument type="string">%mail_alias_from%</argument>
-            <argument type="string">%mail_reply_to%</argument>
+            <argument type="service" id="Extellient\MailBundle\Services\MailBuilder"/>
         </service>
         <service id="Extellient\MailBundle\Sender\SwiftMailSender">
             <argument type="service" id="swiftmailer.mailer"/>

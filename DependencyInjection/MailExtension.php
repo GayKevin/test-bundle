@@ -4,6 +4,7 @@ namespace Extellient\MailBundle\DependencyInjection;
 
 use Extellient\MailBundle\Sender\Sender;
 use Extellient\MailBundle\Sender\SwiftMailSender;
+use Extellient\MailBundle\Services\MailBuilder;
 use Extellient\MailBundle\Services\Mailer;
 use Extellient\MailBundle\Template\MailTemplate;
 use Symfony\Component\Config\FileLocator;
@@ -42,9 +43,12 @@ class MailExtension extends Extension
         $container->getDefinition(SwiftMailSender::class)->replaceArgument(1, new Reference($mailProvider));
 
         $container->getDefinition(Mailer::class)->replaceArgument(0, new Reference($mailProvider));
-        $container->getDefinition(Mailer::class)->replaceArgument(1, $mailAddressFrom);
-        $container->getDefinition(Mailer::class)->replaceArgument(2, $mailAliasFrom);
-        $container->getDefinition(Mailer::class)->replaceArgument(3, $mailReplyTo);
+        $container->getDefinition(Mailer::class)->replaceArgument(1, new Reference(MailBuilder::class));
+        $container->getDefinition(MailBuilder::class)->setMethodCalls([
+            ['setMailAddressFrom', [$mailAddressFrom]],
+            ['setMailAliasFrom', [$mailAliasFrom]],
+            ['setMailReplyTo', [$mailReplyTo]]
+        ]);
 
         $container->getDefinition(Sender::class)
             ->replaceArgument(0, new Reference($senderProvider))

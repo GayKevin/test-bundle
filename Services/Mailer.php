@@ -3,7 +3,6 @@
 namespace Extellient\MailBundle\Services;
 
 use Extellient\MailBundle\Entity\Mail;
-use Extellient\MailBundle\Entity\MailInterface;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
 
 /**
@@ -16,36 +15,19 @@ class Mailer
      */
     private $mailProvider;
     /**
-     * @var string
+     * @var MailBuilder
      */
-    private $mailAddressFrom;
-    /**
-     * @var string
-     */
-    private $mailAliasFrom;
-    /**
-     * @var string
-     */
-    private $mailReplyTo;
+    private $mailBuilder;
 
     /**
      * MailService constructor.
      *
      * @param MailProviderInterface $mailProvider
-     * @param string                $mailAddressFrom
-     * @param string                $mailAliasFrom
-     * @param string                $mailReplyTo
+     * @param MailBuilder $mailBuilder
      */
-    public function __construct(
-        MailProviderInterface $mailProvider,
-        $mailAddressFrom,
-        $mailAliasFrom,
-        $mailReplyTo
-    ) {
+    public function __construct(MailProviderInterface $mailProvider, MailBuilder $mailBuilder) {
         $this->mailProvider = $mailProvider;
-        $this->mailAddressFrom = $mailAddressFrom;
-        $this->mailAliasFrom = $mailAliasFrom;
-        $this->mailReplyTo = $mailReplyTo;
+        $this->mailBuilder = $mailBuilder;
     }
 
     /**
@@ -54,25 +36,11 @@ class Mailer
      * @param $recipients
      * @param array $attachements
      *
-     * @return MailInterface
+     * @return Mail
      */
     public function createEmail($mailSubject, $mailBody, $recipients, $attachements = [])
     {
-        if (!is_array($recipients)) {
-            $recipients = [$recipients];
-        }
-
-        if (!is_array($attachements)) {
-            $attachements = [$attachements];
-        }
-
-        $mail = new Mail($mailSubject, $mailBody, $recipients);
-        $mail->setSenderAlias($this->mailAliasFrom);
-        $mail->setSenderEmail($this->mailAddressFrom);
-        $mail->setReplyToEmail($this->mailReplyTo);
-        $mail->setAttachement($attachements);
-
-        return $mail;
+        return $this->mailBuilder->createEmail($mailSubject, $mailBody, $recipients, $attachements);
     }
 
     /**

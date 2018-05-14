@@ -4,6 +4,7 @@ namespace Extellient\MailBundle\Tests\Services;
 
 use Extellient\MailBundle\Entity\Mail;
 use Extellient\MailBundle\Provider\Mail\MailProviderInterface;
+use Extellient\MailBundle\Services\MailBuilder;
 use Extellient\MailBundle\Services\Mailer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -28,11 +29,14 @@ class MailerTest extends TestCase
 
         $this->mailProviderInterface = $this->createMock(MailProviderInterface::class);
 
+        $mailBuilder = new MailBuilder();
+        $mailBuilder->setMailAddressFrom('mailAddressFrom@test.com');
+        $mailBuilder->setMailAliasFrom('mailAliasFrom@test.com');
+        $mailBuilder->setMailReplyTo('mailReplyTo@test.com');
+
         $this->mailer = new Mailer(
             $this->mailProviderInterface,
-            'mailAddressFrom@test.com',
-            'mailAliasFrom@test.com',
-            'mailReplyTo@test.com'
+            $mailBuilder
         );
     }
 

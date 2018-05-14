@@ -1,0 +1,81 @@
+<?php
+
+
+namespace Extellient\MailBundle\Services;
+
+
+use Doctrine\Common\Annotations\Annotation\Required;
+use Extellient\MailBundle\Entity\Mail;
+
+/**
+ * Class MailBuilder
+ */
+class MailBuilder
+{
+    /**
+     * @var string
+     */
+    private $mailAddressFrom;
+    /**
+     * @var string
+     */
+    private $mailAliasFrom;
+    /**
+     * @var string
+     */
+    private $mailReplyTo;
+
+    /**
+     * @param $mailSubject
+     * @param $mailBody
+     * @param $recipients
+     * @param array $attachements
+     *
+     * @return Mail
+     */
+    public function createEmail($mailSubject, $mailBody, $recipients, $attachements = [])
+    {
+        if (!is_array($recipients)) {
+            $recipients = [$recipients];
+        }
+
+        if (!is_array($attachements)) {
+            $attachements = [$attachements];
+        }
+
+        $mail = new Mail($mailSubject, $mailBody, $recipients);
+        $mail->setSenderAlias($this->mailAliasFrom);
+        $mail->setSenderEmail($this->mailAddressFrom);
+        $mail->setReplyToEmail($this->mailReplyTo);
+        $mail->setAttachement($attachements);
+
+        return $mail;
+    }
+
+    /**
+     * @Required
+     * @param string $mailAddressFrom
+     */
+    public function setMailAddressFrom(string $mailAddressFrom)
+    {
+        $this->mailAddressFrom = $mailAddressFrom;
+    }
+
+    /**
+     * @Required
+     * @param string $mailAliasFrom
+     */
+    public function setMailAliasFrom(string $mailAliasFrom)
+    {
+        $this->mailAliasFrom = $mailAliasFrom;
+    }
+
+    /**
+     * @Required
+     * @param string $mailReplyTo
+     */
+    public function setMailReplyTo(string $mailReplyTo)
+    {
+        $this->mailReplyTo = $mailReplyTo;
+    }
+}
