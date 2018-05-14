@@ -106,8 +106,8 @@ class HomeController extends Controller
      */
     public function indexAction(MailTemplating $mailTemplating)
     {
-        $mail = $mailTemplating->createEmail('reset_password', 'your-email@your-email.com', [
-            'link_password_reset' => 'test'
+        $mail = $mailTemplating->createEmail('your_template', 'your-email@your-email.com', [
+            'variable_twig' => 'test'
         ]);
         $mailTemplating->getMailService()->save($mail);
     }
@@ -119,7 +119,7 @@ class HomeController extends Controller
      */
     public function mailAction(Mailer $mailer)
     {
-        $mail = $mailer->createEmail('subject', 'body', 'kgya@extellient.com');
+        $mail = $mailer->createEmail('subject', 'body', 'your-email@your-email.com');
         $mailer->save($mail);
     }
 

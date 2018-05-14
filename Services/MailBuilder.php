@@ -4,7 +4,6 @@
 namespace Extellient\MailBundle\Services;
 
 
-use Doctrine\Common\Annotations\Annotation\Required;
 use Extellient\MailBundle\Entity\Mail;
 
 /**
@@ -53,7 +52,6 @@ class MailBuilder
     }
 
     /**
-     * @Required
      * @param string $mailAddressFrom
      */
     public function setMailAddressFrom(string $mailAddressFrom)
@@ -62,7 +60,6 @@ class MailBuilder
     }
 
     /**
-     * @Required
      * @param string $mailAliasFrom
      */
     public function setMailAliasFrom(string $mailAliasFrom)
@@ -71,7 +68,6 @@ class MailBuilder
     }
 
     /**
-     * @Required
      * @param string $mailReplyTo
      */
     public function setMailReplyTo(string $mailReplyTo)
